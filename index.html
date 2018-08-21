@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/game.js" defer></script>
+    <!-- <script src="assets/javascript/game2.js" defer></script> -->
     <title>Star Wars RPG</title>
 </head>
 
@@ -21,7 +22,7 @@
             <div id="characters" class="text-center">
                 <h1>Characters</h1>
                 <div id="Obi-Wan" class="image">
-                    <img id="ob" src="assets/images/obi-wan_kenobi.jpg">
+                    <img id="ob" class="picked" src="assets/images/obi-wan_kenobi.jpg">
                     <div id="Obi-Health"></div>
                 </div>
                 <div id="Luke" class="image">
@@ -41,16 +42,27 @@
 
         <div class="row d-flex justify-content-center">
             <h1>Your Character</h1>
-            <div id="myCharacter"></div>
+        </div>
+        <div id="myCharacter" class="row d-flex justify-content-center">
+            <div id="myCharacter2"></div>
         </div>
 
         <div class="row d-flex justify-content-center">
+            <h1 id="title">Which Enemies</h1>
+        </div>
+        <div id="enemies" class="row d-flex justify-content-center">
+            <div id="enemies2"></div>
+        </div>
 
+        <div class="row d-flex justify-content-center">
+            <h1>You Enemy</h1>
+        </div>
+        <div id="myEnemy" class="row d-flex justify-content-center">
+            <div id="myEnemy2">
+            </div>
 
         </div>
 
-    </div>
-    
 </body>
 
 </html>
