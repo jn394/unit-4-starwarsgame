@@ -92,23 +92,10 @@ $(document).ready(function () {
         };
     });
 
-
-
-// function canObiDie() {
-//     if (healthObi <=0) {
-//         $("#myResult").text("You have been defeated");
-//         $("#myReset").show();
-//     }
-//     else {
-
-//     };
-// };
-
-
-
-
     //When the Attack button is clicked the health of the enemy is lowered and your characters health is lowered as well
     $("#myAttack").on("click", function () {
+
+        //Different conditions that can happen
         var myObiAttacking = $.contains(document.getElementById("myCharacter2"), document.getElementById("Obi-Wan"));
         var myLukeAttacking = $.contains(document.getElementById("myCharacter2"), document.getElementById("Luke"));
         var mySidiAttacking = $.contains(document.getElementById("myCharacter2"), document.getElementById("Sidi"));
@@ -119,6 +106,7 @@ $(document).ready(function () {
         var myEnemySidi = $.contains(document.getElementById("myEnemy2"), document.getElementById("Sidi"));
         var myEnemyMaul = $.contains(document.getElementById("myEnemy2"), document.getElementById("Maul"));
 
+        //Obi-Wan attacking and Luke is enemy 
         if (myObiAttacking && myEnemyLuke) {
             attackObi += 8;
             $("#myDamage").show();
@@ -135,7 +123,8 @@ $(document).ready(function () {
                 healthObi -= startAttackLuke;
             };
         }
-        
+
+        //Obi-Wan attacking and Sidi is enemy 
         else if (myObiAttacking && myEnemySidi) {
             attackObi += 8;
             $("#myDamage").show();
@@ -153,18 +142,19 @@ $(document).ready(function () {
             };
         }
 
+        //Obi-Wan attacking and Maul is enemy 
         else if (myObiAttacking && myEnemyMaul) {
             attackObi += 8;
             $("#myDamage").show();
             $("#myDamage").text("You attacked for: " + attackObi + " damage");
-            
+            healthMaul -= attackObi
 
             if (healthMaul <= 0) {
                 $("#myEnemy2").empty();
                 $("#myResult").show();
                 $("#myResult").text("Congrates! You have defeated Darth Maul");
             }
-            else if (healthObi <=0) {
+            else if (healthObi <= 0) {
                 $("#myDamage").hide();
                 $("#myResult").show();
                 $("#myResult").text("You have been defeated");
@@ -172,121 +162,185 @@ $(document).ready(function () {
             }
             else {
                 healthObi -= startAttackMaul;
-                healthMaul -= attackObi;
             };
+            
         }
-        else {  
+        else {
             $("#myDamage").hide();
             $("#myResult").show();
             $("#myResult").text("No enemy here");
         };
 
-
-
+        //Luke attacking and Obi-Wan is enemy 
         if (myLukeAttacking && myEnemyObi) {
             attackLuke += 5;
+            $("#myDamage").show();
             $("#myDamage").text("You attacked for: " + attackLuke + " damage");
             healthObi -= attackLuke;
 
             if (healthObi <= 0) {
                 $("#myEnemy2").empty();
+                $("#myResult").show();
                 $("#myResult").text("Congrates! You have defeated Obi-Wan Kenobi");
             }
             else {
                 healthLuke -= startAttackObi;
             };
-        };
+        }
 
-        if (myLukeAttacking && myEnemySidi) {
+        //Luke attacking and Sidi is enemy 
+        else if (myLukeAttacking && myEnemySidi) {
             attackLuke += 5;
+            $("#myDamage").show();
             $("#myDamage").text("You attacked for: " + attackLuke + " damage");
-            healthSidi -= attackLuke;
+
 
             if (healthSidi <= 0) {
                 $("#myEnemy2").empty();
+                $("#myResult").show();
                 $("#myResult").text("Congrates! You have defeated Darth Sidious");
+            }
+            else if (healthLuke <= 0) {
+                $("#myDamage").hide();
+                $("#myResult").show();
+                $("#myResult").text("You have been defeated");
+                $("#myReset").show();
             }
             else {
                 healthLuke -= startAttackSidi;
+                healthSidi -= attackLuke;
             };
-        };
+        }
 
-        if (myLukeAttacking && myEnemyMaul) {
+        //Luke attacking and Maul is enemy 
+        else if (myLukeAttacking && myEnemyMaul) {
             attackLuke += 5;
+            $("#myDamage").show();
             $("#myDamage").text("You attacked for: " + attackLuke + " damage");
-            healthMaul -= attackLuke;
+
 
             if (healthMaul <= 0) {
                 $("#myEnemy2").empty();
+                $("#myResult").show();
                 $("#myResult").text("Congrates! You have defeated Darth Maul");
+            }
+            else if (healthLuke <= 0) {
+                $("#myDamage").hide();
+                $("#myResult").show();
+                $("#myResult").text("You have been defeated");
+                $("#myReset").show();
             }
             else {
                 healthLuke -= startAttackMaul;
+                healthMaul -= attackLuke;
             };
         };
 
-
-        if (mySidiAttacking) {
+        //Sidi attacking and Obi is enemy
+        if (mySidiAttacking && myEnemyObi) {
             attackSidi += 20;
+            $("#myDamage").show();
             $("#myDamage").text("You attacked for: " + attackSidi + " damage");
 
-            if ($.contains(document.getElementById("myEnemy2"), document.getElementById("Obi-Wan"))) {
+            if (healthObi <= 0) {
+                $("#myEnemy2").empty();
+                $("#myResult").show();
+                $("#myResult").text("Congrates! You have defeated Obi-Wan Kenobi");
+            }
+            else {
                 healthObi -= attackSidi;
                 healthSidi -= startAttackObi;
-                if (healthObi <= 0) {
-                    $("#myEnemy2").empty();
-                    $("#myResult").text("Congrates! You have defeated Obi-Wan Kenobi");
-                };
             };
+        }
 
-            if ($.contains(document.getElementById("myEnemy2"), document.getElementById("Luke"))) {
+        //Sidi attacking and Luke is enemy
+        else if (mySidiAttacking && myEnemyLuke) {
+            attackSidi += 20;
+            $("#myDamage").show();
+            $("#myDamage").text("You attacked for: " + attackSidi + " damage");
+
+            if (healthLuke <= 0) {
+                $("#myEnemy2").empty();
+                $("#myResult").show();
+                $("#myResult").text("Congrates! You have defeated Luke Skywalker");
+            }
+            else {
                 healthLuke -= attackSidi;
                 healthSidi -= startAttackLuke;
-                if (healthLuke <= 0) {
-                    $("#myEnemy2").empty();
-                    $("#myResult").text("Congrates! You have defeated Luke Skywalker");
-                };
             };
+        }
 
-            if ($.contains(document.getElementById("myEnemy2"), document.getElementById("Maul"))) {
+        //Sidi attacking and Maul is enemy
+        else if (mySidiAttacking && myEnemyMaul) {
+            attackSidi += 20;
+            $("#myDamage").show();
+            $("#myDamage").text("You attacked for: " + attackSidi + " damage");
+
+            if (healthMaul <= 0) {
+                $("#myEnemy2").empty();
+                $("#myResult").show();
+                $("#myResult").text("Congrates! You have defeated Darth Maul");
+            }
+            else if (healthSidi <= 0) {
+                $("#myDamage").hide();
+                $("#myResult").show();
+                $("#myResult").text("You have been defeated");
+                $("#myReset").show();
+            }
+            else {
                 healthMaul -= attackSidi;
                 healthSidi -= startAttackMaul;
-                if (healthMaul <= 0) {
-                    $("#myEnemy2").empty();
-                    $("#myResult").text("Congrates! You have defeated Darth Maul");
-                };
             };
         };
 
-        if (myMaulAttacking) {
+        //Maul attacking and Obi-Wan is enemy
+        if (myMaulAttacking && myEnemyObi) {
             attackMaul += 25;
+            $("#myDamage").show();
             $("#myDamage").text("You attacked for: " + attackMaul + " damage");
 
-            if ($.contains(document.getElementById("myEnemy2"), document.getElementById("Obi-Wan"))) {
+            if (healthObi <= 0) {
+                $("#myEnemy2").empty();
+                $("#myResult").show();
+                $("#myResult").text("Congrates! You have defeated Obi-Wan Kenobi");
+            }
+            else {
                 healthObi -= attackMaul;
                 healthMaul -= startAttackObi;
-                if (healthObi <= 0) {
-                    $("#myEnemy2").empty();
-                    $("#myResult").text("Congrates! You have defeated Obi-Wan Kenobi");
-                };
             };
+        }
 
-            if ($.contains(document.getElementById("myEnemy2"), document.getElementById("Luke"))) {
+        //Maul attacking and Luke is enemy
+        else if (myMaulAttacking && myEnemyLuke) {
+            attackMaul += 25;
+            $("#myDamage").show();
+            $("#myDamage").text("You attacked for: " + attackMaul + " damage");
+
+            if (healthLuke <= 0) {
+                $("#myEnemy2").empty();
+                $("#myResult").show();
+                $("#myResult").text("Congrates! You have defeated Luke Skywalker");
+            }
+            else {
                 healthLuke -= attackMaul;
                 healthMaul -= startAttackLuke;
-                if (healthLuke <= 0) {
-                    $("#myEnemy2").empty();
-                    $("#myResult").text("Congrates! You have defeated Luke Skywalker");
-                };
             };
+        }
 
-            if ($.contains(document.getElementById("myEnemy2"), document.getElementById("Sidi"))) {
+        //Maul attacking and Sidi is enemy
+        else if (myMaulAttacking && myEnemySidi) {
+            attackMaul += 25;
+            $("#myDamage").show();
+            $("#myDamage").text("You attacked for: " + attackMaul + " damage");
+
+            if (healthSidi <= 0) {
+                $("#myEnemy2").empty();
+                $("#myResult").show();
+                $("#myResult").text("Congrates! You have defeated Darth Sidious");
+            }
+            else {
                 healthSidi -= attackMaul;
                 healthMaul -= startAttackSidi;
-                if (healthSidi <= 0) {
-                    $("#myEnemy2").empty();
-                    $("#myResult").text("Congrates! You have defeated Darth Sidious");
-                };
             };
         };
 
@@ -295,14 +349,10 @@ $(document).ready(function () {
         $("#Sidi-Health").text(healthSidi);
         $("#Maul-Health").text(healthMaul);
 
-
-
-
-
     });
 
-
-
-
+$("#myReset").on("click",function(){
+    location.reload();
+});
 
 });
