@@ -9,8 +9,8 @@
         crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/javascript/game.js" defer></script>
-    <!-- <script src="assets/javascript/game2.js" defer></script> -->
+    <!-- <script src="assets/javascript/game.js" defer></script> -->
+    <script src="assets/javascript/game2.js" defer></script>
     <title>Star Wars RPG</title>
 </head>
 
@@ -48,19 +48,26 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-            <h1 id="title">Which Enemies</h1>
+            <h1 id="title">Enemies Available To Attack</h1>
         </div>
         <div id="enemies" class="row d-flex justify-content-center">
-            <div id="enemies2"></div>
+            <div id="enemies2" class="thungs"></div>
         </div>
 
         <div class="row d-flex justify-content-center">
             <h1>You Enemy</h1>
         </div>
         <div id="myEnemy" class="row d-flex justify-content-center">
-            <div id="myEnemy2">
-            </div>
+            <div id="myEnemy2"></div>
+        </div>
 
+        <div class="row d-flex justify-content-center">
+            <div id="myFight">
+                <h1>Fight Selector</h1>
+                <p id="myDamage"></p>
+                <p id="myResult"></p>
+            </div>
+                <div id="myAttack" type="button" class="btn btn-primary">Attack</div>
         </div>
 
 </body>

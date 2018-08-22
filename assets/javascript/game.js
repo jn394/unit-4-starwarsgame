@@ -60,8 +60,6 @@ $(document).ready(function () {
             // myPick();
             $("#Luke").on("click", function () {
                 $("#myCharacter2").append($("#Obi-Wan"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -69,8 +67,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Luke"), $("#Sidi"), $("#Maul"))) {
             $("#Sidi").on("click", function () {
                 $("#myCharacter2").append($("#Obi-Wan"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -78,8 +74,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Luke"), $("#Sidi"), $("#Maul"))) {
             $("#Maul").on("click", function () {
                 $("#myCharacter2").append($("#Obi-Wan"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -91,8 +85,6 @@ $(document).ready(function () {
             // myPick();
             $("#Obi-Wan").on("click", function () {
                 $("#myCharacter2").append($("#Luke"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -100,8 +92,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Obi-Wan"), $("#Sidi"), $("#Maul"))) {
             $("#Sidi").on("click", function () {
                 $("#myCharacter2").append($("#Luke"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -109,8 +99,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Obi-Wan"), $("#Sidi"), $("#Maul"))) {
             $("#Maul").on("click", function () {
                 $("#myCharacter2").append($("#Luke"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -122,8 +110,6 @@ $(document).ready(function () {
             // myPick();
             $("#Obi-Wan").on("click", function () {
                 $("#myCharacter2").append($("#Sidi"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -131,8 +117,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Obi-Wan"), $("#Luke"), $("#Maul"))) {
             $("#Luke").on("click", function () {
                 $("#myCharacter2").append($("#Sidi"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -140,8 +124,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Obi-Wan"), $("#Luke"), $("#Maul"))) {
             $("#Maul").on("click", function () {
                 $("#myCharacter2").append($("#Sidi"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -153,8 +135,6 @@ $(document).ready(function () {
             // myPick();
             $("#Obi-Wan").on("click", function () {
                 $("#myCharacter2").append($("#Maul"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -162,8 +142,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Obi-Wan"), $("#Luke"), $("#Sidi"))) {
             $("#Luke").on("click", function () {
                 $("#myCharacter2").append($("#Maul"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
@@ -171,8 +149,6 @@ $(document).ready(function () {
         if ($("#enemies2").has($("#Obi-Wan"), $("#Luke"), $("#Sidi"))) {
             $("#Sidi").on("click", function () {
                 $("#myCharacter2").append($("#Maul"));
-                $("#enemies2").hide();
-                $("#title").hide();
                 $("#myEnemy2").append($(this));
             });
         };
