@@ -30,6 +30,7 @@ $(document).ready(function () {
         var option1 = $.contains(document.getElementById("characters"), document.getElementById("Obi-Wan"));
         var option2 = $.contains(document.getElementById("enemies"), document.getElementById("Obi-Wan"));
         if (option1) {
+            $("#characters").hide();
             $("#myCharacter2").append($(this));
             $("#enemies2").append($("#Luke"), $("#Sidi"), $("#Maul"));
         }
@@ -46,6 +47,7 @@ $(document).ready(function () {
         var option1 = $.contains(document.getElementById("characters"), document.getElementById("Luke"));
         var option2 = $.contains(document.getElementById("enemies"), document.getElementById("Luke"));
         if (option1) {
+            $("#characters").hide();
             $("#myCharacter2").append($(this));
             $("#enemies2").append($("#Obi-Wan"), $("#Sidi"), $("#Maul"));
         }
@@ -63,6 +65,7 @@ $(document).ready(function () {
         var option1 = $.contains(document.getElementById("characters"), document.getElementById("Sidi"));
         var option2 = $.contains(document.getElementById("enemies"), document.getElementById("Sidi"));
         if (option1) {
+            $("#characters").hide();
             $("#myCharacter2").append($(this));
             $("#enemies2").append($("#Obi-Wan"), $("#Luke"), $("#Maul"));
         }
@@ -80,6 +83,7 @@ $(document).ready(function () {
         var option1 = $.contains(document.getElementById("characters"), document.getElementById("Maul"));
         var option2 = $.contains(document.getElementById("enemies"), document.getElementById("Maul"));
         if (option1) {
+            $("#characters").hide();
             $("#myCharacter2").append($(this));
             $("#enemies2").append($("#Obi-Wan"), $("#Luke"), $("#Sidi"));
         }
